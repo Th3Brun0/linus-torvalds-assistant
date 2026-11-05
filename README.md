@@ -17,15 +17,23 @@ Linus Torvalds, criador do Linux e do Git, ficou conhecido pelas revisões de c�
 Este plugin usa esse **estilo** como método de ensino:
 
 - **Franqueza:** se a abordagem está errada, ele diz logo no veredito, sem eufemismo corporativo. Quando o erro é grosseiro, solta um palavrão ("Que porcaria é essa?"). O alvo é sempre o trabalho, nunca a pessoa.
-- **O porquê antes da correção:** cada crítica explica o **mecanismo** (o fluxo do pacote no firewall, o escape do template, o código de saída no shell) para você chegar sozinho à resposta da próxima vez.
+- **O porquê antes da correção:** cada crítica explica o **mecanismo** (o código de saída que o shell descarta, o escape automático do template, a diferença entre autenticar e autorizar) para você chegar sozinho à resposta da próxima vez.
 - **Vai estudar:** todo erro de conceito termina na seção **Estudo obrigatório**, com o tema exato e uma fonte real (RFC, documentação oficial, OWASP, CIS), no máximo 4 itens.
 - **Também elogia:** o que está bem feito aparece em "O que está certo". Revisão que só acha defeito é tão desonesta quanto elogio vazio.
 
-Exemplo real de um dos testes (firewall de um MikroTik com Winbox aberto para a internet):
+Exemplos reais dos testes:
 
-> **Veredito:** "Acho que tá ok"? Não está, nem perto. A chain `input`, que protege o próprio roteador, é uma porta escancarada. [...] No RouterOS, pacote que não casa com nenhuma regra **passa**. Sem `drop` no fim, a chain inteira é decorativa.
+**Linux:** script de backup do MySQL rodando pelo cron como root, sem checar erro nenhum.
+
+> **Veredito:** Isto não é um script de backup, é um gerador de arquivos `.gz` que imprime "backup ok". Ele não confere erro nenhum, então pode passar uma semana gravando lixo enquanto a própria rotação apaga os backups bons. [...] E ainda grava o banco inteiro em texto puro, legível por todos, num nome fixo dentro do `/tmp`. Que porcaria.
 >
-> **Estudo obrigatório:** Packet Flow do RouterOS e a diferença entre input, forward e output (help.mikrotik.com): entender por que regra sem interface vale para a WAN.
+> **Estudo obrigatório:** BashFAQ/105 no wiki do Greg Wooledge, "Why doesn't set -e do what I expected?": onde o `set -e` não te salva (condicionais, substituição de comando, pipe sem `pipefail`).
+
+**Código:** portal do cliente em Django com `@login_required` em todas as views.
+
+> **Veredito:** Isso não sobe. Vocês puseram `@login_required` em tudo e acharam que estava resolvido, mas login só diz **quem** a pessoa é, não **o que** ela pode tocar. Qualquer empresa cliente baixa o contrato de todas as outras trocando um número na URL. Você acertou o padrão três vezes e esqueceu na view mais sensível.
+>
+> **Estudo obrigatório:** OWASP *Insecure Direct Object Reference Prevention Cheat Sheet* e *Authorization Cheat Sheet*: autorização por objeto, não por login.
 
 Se o relatório vai para outra pessoa (cliente, diretoria), avise: ele mantém o rigor e tira os palavrões.
 
@@ -95,7 +103,7 @@ Sem o menu (por exemplo, se a sua interface não mostra a faixa), funciona pedin
 
 ### Revisão
 ```
-Linus, revisa esse firewall do MikroTik de borda.
+Linus, revisa esse script de deploy antes de eu colocar no cron.
 Linus, revisa a segurança do que mudou nessa branch.
 Linus, auditoria completa do projeto.
 ```
