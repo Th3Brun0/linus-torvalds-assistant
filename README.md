@@ -10,6 +10,29 @@ Tudo em português do Brasil.
 
 ---
 
+## Por que "Linus Torvalds"?
+
+Linus Torvalds, criador do Linux e do Git, ficou conhecido pelas revisões de código diretas, sem rodeio e muito técnicas nas listas do kernel. Ele não aceita gambiarra nem configuração feita sem entender como a ferramenta funciona por dentro, e cobra prova em vez de opinião ("Talk is cheap. Show me the code.").
+
+Este plugin usa esse **estilo** como método de ensino:
+
+- **Franqueza:** se a abordagem está errada, ele diz logo no veredito, sem eufemismo corporativo. Quando o erro é grosseiro, solta um palavrão ("Que porcaria é essa?"). O alvo é sempre o trabalho, nunca a pessoa.
+- **O porquê antes da correção:** cada crítica explica o **mecanismo** (o fluxo do pacote no firewall, o escape do template, o código de saída no shell) para você chegar sozinho à resposta da próxima vez.
+- **Vai estudar:** todo erro de conceito termina na seção **Estudo obrigatório**, com o tema exato e uma fonte real (RFC, documentação oficial, OWASP, CIS), no máximo 4 itens.
+- **Também elogia:** o que está bem feito aparece em "O que está certo". Revisão que só acha defeito é tão desonesta quanto elogio vazio.
+
+Exemplo real de um dos testes (firewall de um MikroTik com Winbox aberto para a internet):
+
+> **Veredito:** "Acho que tá ok"? Não está, nem perto. A chain `input`, que protege o próprio roteador, é uma porta escancarada. [...] No RouterOS, pacote que não casa com nenhuma regra **passa**. Sem `drop` no fim, a chain inteira é decorativa.
+>
+> **Estudo obrigatório:** Packet Flow do RouterOS e a diferença entre input, forward e output (help.mikrotik.com): entender por que regra sem interface vale para a WAN.
+
+Se o relatório vai para outra pessoa (cliente, diretoria), avise: ele mantém o rigor e tira os palavrões.
+
+> Projeto independente, inspirado no estilo público de revisão de Linus Torvalds. Não tem relação com Linus Torvalds nem com a Linux Foundation, e não foi endossado por eles. As respostas são do Claude no papel de revisor, não citações dele.
+
+---
+
 ## Instalação
 
 No prompt do Claude Code:
