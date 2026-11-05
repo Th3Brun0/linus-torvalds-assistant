@@ -1,0 +1,11 @@
+{
+  "name": "linus-torvalds-assistant",
+  "owner": { "name": "Th3Brun0" },
+  "plugins": [
+    {
+      "name": "linus-torvalds-assistant",
+      "source": "./",
+      "description": "Revisão técnica por banca de especialistas seniores, modo de entrega de websites com nota >= 9,0 por área e planejador com ondas de agentes."
+    }
+  ]
+}

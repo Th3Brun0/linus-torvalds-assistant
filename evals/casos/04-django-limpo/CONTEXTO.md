@@ -1,0 +1,1 @@
+Portal do cliente, Django 5.0, produção atrás de Nginx. Anexos são gravados com nome uuid4 em pasta que o Nginx não serve (só sai pela view). nome_original é só o nome exibido. O formulário de chamado (fora deste trecho) valida tamanho e tipo do anexo.

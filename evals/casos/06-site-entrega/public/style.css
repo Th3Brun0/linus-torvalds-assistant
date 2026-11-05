@@ -1,0 +1,9 @@
+body { font-family: system-ui, sans-serif; margin: 0; padding: 0 16px; color: #222; }
+header { display: flex; align-items: center; justify-content: space-between; }
+nav a { color: #999; margin-right: 8px; font-size: 14px; }
+a:focus { outline: none; }
+.menu { width: 16px; height: 16px; padding: 0; border: 0; font-size: 12px; background: none; }
+.planos { width: 640px; border-collapse: collapse; }
+.planos td, .planos th { border: 1px solid #ccc; padding: 8px; }
+.legal { font-size: 10px; color: #aaa; }
+img { max-width: 100%; }

@@ -1,0 +1,1 @@
+Portal do cliente de um provedor de internet. Django 5.0, produção, atrás de Nginx. Clientes externos (empresas) acessam pela internet. A descrição da fatura é digitada pelo atendente interno e também pode vir de importação do ERP.

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ chamado.titulo }}</h1>
+<p>{{ chamado.descricao|linebreaksbr }}</p>
+{% for a in chamado.anexos.all %}
+  <a href="{% url 'portal:anexo_download' a.pk %}">{{ a.nome_original }}</a>
+{% endfor %}
+<form method="post" action="{% url 'portal:chamado_fechar' chamado.pk %}">
+  {% csrf_token %}
+  <button type="submit">Fechar chamado</button>
+</form>
+{% endblock %}

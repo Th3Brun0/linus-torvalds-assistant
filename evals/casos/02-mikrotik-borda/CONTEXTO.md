@@ -1,0 +1,1 @@
+Roteador de borda de um escritório (40 usuários), em produção. ether1 é o link da operadora com IP público. A equipe de TI acessa por Winbox de dentro da LAN e, às vezes, de casa pela VPN da empresa (a VPN fica em outro equipamento, dentro da LAN).

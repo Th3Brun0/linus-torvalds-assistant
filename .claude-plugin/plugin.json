@@ -1,0 +1,7 @@
+{
+  "name": "linus-torvalds-assistant",
+  "version": "0.6.0",
+  "license": "MIT",
+  "description": "Linus Torvalds Assistant: revisão por banca de especialistas seniores, modo de entrega de websites com nota >= 9,0 por área, planejador com ondas de agentes e menu acima do prompt",
+  "types": "./types/index.d.ts"
+}

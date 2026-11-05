@@ -1,0 +1,1 @@
+Servidor Ubuntu 24.04 de produção com MySQL 8.4. Linha do crontab do root: `0 2 * * * /usr/local/bin/backup.sh /backup >> /var/log/backup.log 2>&1`. O servidor tem outros usuários com shell (equipe de suporte).

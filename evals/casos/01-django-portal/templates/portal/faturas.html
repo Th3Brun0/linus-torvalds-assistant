@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Minhas faturas</h1>
+<table>
+  {% for f in faturas %}
+  <tr>
+    <td>{{ f.descricao|safe }}</td>
+    <td>R$ {{ f.valor }}</td>
+    <td>{{ f.vencimento|date:"d/m/Y" }}</td>
+    <td>{{ f.status }}</td>
+    <td><a href="{% url 'portal:fatura_cancelar' f.pk %}">Cancelar</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
